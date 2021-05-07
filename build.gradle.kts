@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.realcnbs"
-version = "1.0.0"
+version = "1.0.1"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_16
@@ -41,6 +41,16 @@ dependencies {
 
 tasks.getByName<Test>("test") {
     useJUnitPlatform()
+}
+
+val copyGenericMappersToResources = tasks.register<Copy>("copyGenericMappersToResources") {
+    from("src/main/java/com/realcnbs/horizon/framework/data/mapper")
+    include("**/*.xml")
+    into("$buildDir/resources/main/com/realcnbs/horizon/framework/data/mapper")
+}
+
+tasks.withType<ProcessResources> {
+    dependsOn(copyGenericMappersToResources)
 }
 
 publishing {
