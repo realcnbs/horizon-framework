@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.realcnbs"
-version = "1.0"
+version = "1.0.0"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_16
@@ -41,4 +41,12 @@ dependencies {
 
 tasks.getByName<Test>("test") {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("horizon-framework") {
+            from(components["java"])
+        }
+    }
 }
