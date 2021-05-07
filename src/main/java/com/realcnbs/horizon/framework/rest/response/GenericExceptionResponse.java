@@ -1,7 +1,7 @@
 package com.realcnbs.horizon.framework.rest.response;
 
 import com.realcnbs.horizon.framework.rest.controller.view.Public;
-import com.realcnbs.horizon.framework.util.HashUtils;
+import com.realcnbs.horizon.framework.util.HorizonUtils;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -16,7 +16,7 @@ public class GenericExceptionResponse implements ExceptionResponse {
     private String errorRef;
 
     public GenericExceptionResponse() {
-        errorRef = HashUtils.getRandomString(10).toUpperCase();
+        errorRef = HorizonUtils.getRandomString(10).toUpperCase();
     }
 
     @JsonProperty("errorRef")

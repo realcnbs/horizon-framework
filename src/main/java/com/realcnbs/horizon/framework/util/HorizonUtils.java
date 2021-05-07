@@ -3,7 +3,7 @@ package com.realcnbs.horizon.framework.util;
 import java.security.SecureRandom;
 import java.util.Random;
 
-public class HashUtils {
+public class HorizonUtils {
 
     private static final char[] CHARSET_AZ_09 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
 
