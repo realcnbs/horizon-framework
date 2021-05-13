@@ -32,6 +32,7 @@ dependencies {
     compileOnly("org.apache.commons:commons-lang3:3.6")
     compileOnly("com.fasterxml.jackson.core:jackson-annotations:2.12.3")
     compileOnly("com.google.guava:guava:27.1-jre")
+    compileOnly("com.auth0:java-jwt:3.2.0")
 
     compileOnly("org.projectlombok:lombok:1.18.20")
 
