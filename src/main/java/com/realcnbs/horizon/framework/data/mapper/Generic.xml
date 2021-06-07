@@ -39,7 +39,9 @@
             </when>
             <when test="fieldFilter.CheckType.name() == 'ARRAY_ANY'">
                 ${logic} ${prefix}${fieldFilter.field} &amp;&amp;
-                <foreach item="item" collection="fieldFilter.value" open="ARRAY[" separator="," close="]::text[]">#{item}</foreach>
+                <foreach item="item" collection="fieldFilter.value" open="ARRAY[" separator="," close="]::text[]">
+                    #{item}
+                </foreach>
             </when>
             <when test="fieldFilter.CheckType.name() == 'LIKE' or fieldFilter.CheckType.name() == 'STARTS_WITH' or fieldFilter.CheckType.name() == 'ENDS_WITH'">
                 ${logic} ${prefix}${fieldFilter.field} ILIKE #{fieldFilter.value}

@@ -4,18 +4,18 @@ import com.realcnbs.horizon.framework.data.dao.entity.AbstractEntityDao;
 import com.realcnbs.horizon.framework.data.entity.AbstractEntity;
 import com.realcnbs.horizon.framework.data.filter.FieldFilter;
 import com.realcnbs.horizon.framework.data.filter.FilterDefinition;
+import com.realcnbs.horizon.framework.rest.RestRequestFilter;
+import com.realcnbs.horizon.framework.rest.exception.InvalidFilterException;
+import com.realcnbs.horizon.framework.rest.exception.NotFoundException;
 import com.realcnbs.horizon.framework.rest.form.definition.AbstractForm;
 import com.realcnbs.horizon.framework.rest.form.processor.FormProcessor;
 import com.realcnbs.horizon.framework.rest.repr.PagedEntityRepr;
+import com.realcnbs.horizon.framework.rest.repr.Representation;
 import com.realcnbs.horizon.framework.rest.repr.RepresentationFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import com.realcnbs.horizon.framework.rest.RestRequestFilter;
-import com.realcnbs.horizon.framework.rest.exception.InvalidFilterException;
-import com.realcnbs.horizon.framework.rest.exception.NotFoundException;
-import com.realcnbs.horizon.framework.rest.repr.Representation;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -137,7 +137,7 @@ public abstract class AbstractEntityController<T> {
                             numbers.add(Long.valueOf(filterEntry.getValue()));
                             fieldFilter.setValue(numbers);
                             fieldFilters.add(fieldFilter);
-                        }else{
+                        } else {
                             throw new InvalidFilterException("Non numeric value supplied for NUMBER filter: " + filterEntry.getValue());
                         }
                     }

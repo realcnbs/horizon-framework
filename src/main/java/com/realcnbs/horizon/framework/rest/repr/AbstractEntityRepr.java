@@ -3,9 +3,7 @@ package com.realcnbs.horizon.framework.rest.repr;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonView;
 import com.realcnbs.horizon.framework.data.entity.AbstractEntity;
-import com.realcnbs.horizon.framework.rest.controller.view.Public;
 
 import java.time.format.DateTimeFormatter;
 
@@ -28,7 +26,6 @@ public abstract class AbstractEntityRepr implements Representation {
     }
 
     @JsonProperty("createdAt")
-    @JsonView(Public.class)
     public String getCreatedAt() {
         if (entity == null) return null;
         return entity.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"));
@@ -41,7 +38,6 @@ public abstract class AbstractEntityRepr implements Representation {
     }
 
     @JsonProperty
-    @JsonView(Public.class)
     public Long getId() {
         return entity != null ? entity.getId() : null;
     }

@@ -1,10 +1,8 @@
 package com.realcnbs.horizon.framework.rest.response;
 
-import com.realcnbs.horizon.framework.rest.controller.view.Public;
-import com.realcnbs.horizon.framework.util.HorizonUtils;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonView;
+import com.realcnbs.horizon.framework.util.HorizonUtils;
 
 @JsonPropertyOrder({"errorType", "message", "errorRef"})
 public class GenericExceptionResponse implements ExceptionResponse {
@@ -20,13 +18,11 @@ public class GenericExceptionResponse implements ExceptionResponse {
     }
 
     @JsonProperty("errorRef")
-    @JsonView(Public.class)
     public String getErrorRef() {
         return errorRef;
     }
 
     @Override
-    @JsonView(Public.class)
     public String getErrorType() {
         return type != null ? type.name() : "Unknown";
     }
@@ -37,7 +33,6 @@ public class GenericExceptionResponse implements ExceptionResponse {
     }
 
     @Override
-    @JsonView(Public.class)
     public String getMessage() {
         return message;
     }
