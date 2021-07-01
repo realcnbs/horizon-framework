@@ -43,6 +43,13 @@
                     #{item}
                 </foreach>
             </when>
+            <when test="fieldFilter.CheckType.name() == 'ANY_IN_ARRAY'">
+                ${logic} (
+                <foreach item="item" collection="fieldFilter.value" separator=" OR ">
+                  #{item} = ANY (${prefix}${fieldFilter.field})
+                </foreach>
+                )
+            </when>
             <when test="fieldFilter.CheckType.name() == 'LIKE' or fieldFilter.CheckType.name() == 'STARTS_WITH' or fieldFilter.CheckType.name() == 'ENDS_WITH'">
                 ${logic} ${prefix}${fieldFilter.field} ILIKE #{fieldFilter.value}
             </when>

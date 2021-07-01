@@ -83,7 +83,7 @@ public class FieldFilter {
     }
 
     public enum CheckType {
-        EQUALS, NOT_EQUALS, LIKE, STARTS_WITH, ENDS_WITH, LESS_EQUALS, GREATER_EQUALS, LESS, GREATER, IN, ARRAY_ANY
+        EQUALS, NOT_EQUALS, LIKE, STARTS_WITH, ENDS_WITH, LESS_EQUALS, GREATER_EQUALS, LESS, GREATER, IN, ARRAY_ANY, ANY_IN_ARRAY
     }
 
     public enum LogicType {

@@ -19,6 +19,10 @@ public class FilterBuilder {
         return new FilterBuilder();
     }
 
+    public FieldFilter byName(String name) {
+        return filters.stream().filter(ff -> ff.getField().equals(name)).findFirst().orElse(null);
+    }
+
     public FieldFilterCheckBuilder and(String field) {
         FieldFilter filter = new FieldFilter(field);
         filter.setLogicType(FieldFilter.LogicType.AND);
@@ -196,6 +200,12 @@ public class FilterBuilder {
 
         public FilterBuilder geq(Object value) {
             filter.setCheckType(FieldFilter.CheckType.GREATER_EQUALS);
+            filter.setValue(value);
+            return filterBuilder;
+        }
+
+        public FilterBuilder anyArr(Object value) {
+            filter.setCheckType(FieldFilter.CheckType.ANY_IN_ARRAY);
             filter.setValue(value);
             return filterBuilder;
         }
