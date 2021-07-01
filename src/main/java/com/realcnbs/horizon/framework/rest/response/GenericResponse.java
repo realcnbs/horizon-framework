@@ -1,6 +1,8 @@
 package com.realcnbs.horizon.framework.rest.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.realcnbs.horizon.framework.rest.controller.view.HorizonPublic;
 
 public class GenericResponse implements Response {
 
@@ -8,6 +10,7 @@ public class GenericResponse implements Response {
 
     @Override
     @JsonProperty
+    @JsonView(HorizonPublic.class)
     public String getMessage() {
         return message;
     }

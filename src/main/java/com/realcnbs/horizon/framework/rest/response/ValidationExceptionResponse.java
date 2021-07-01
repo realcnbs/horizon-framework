@@ -1,6 +1,8 @@
 package com.realcnbs.horizon.framework.rest.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.realcnbs.horizon.framework.rest.controller.view.HorizonPublic;
 
 import java.util.List;
 import java.util.Map;
@@ -34,6 +36,7 @@ public class ValidationExceptionResponse implements ExceptionResponse {
     }
 
     @JsonProperty("errors")
+    @JsonView(HorizonPublic.class)
     public Map<String, List<ValidationError>> getErrors() {
         return errors;
     }

@@ -2,8 +2,10 @@ package com.realcnbs.horizon.framework.rest.repr;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonView;
 import com.realcnbs.horizon.framework.data.filter.FilterDefinition;
 import com.realcnbs.horizon.framework.data.filter.SortDefinition;
+import com.realcnbs.horizon.framework.rest.controller.view.HorizonPublic;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 
@@ -32,6 +34,7 @@ public class PagedEntityRepr implements Representation {
     }
 
     @JsonProperty("pageMetadata")
+    @JsonView(HorizonPublic.class)
     public Map<String, Object> getPageMetadata() {
 
         Map<String, Object> meta = new HashMap<>();
@@ -98,6 +101,7 @@ public class PagedEntityRepr implements Representation {
     }
 
     @JsonProperty("content")
+    @JsonView(HorizonPublic.class)
     public List<Representation> getRepresentations() {
         return representations;
     }

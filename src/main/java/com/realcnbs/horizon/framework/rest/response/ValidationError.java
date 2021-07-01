@@ -1,16 +1,21 @@
 package com.realcnbs.horizon.framework.rest.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.realcnbs.horizon.framework.rest.controller.view.HorizonPublic;
 
 public class ValidationError {
 
     @JsonProperty
+    @JsonView(HorizonPublic.class)
     private String field;
 
     @JsonProperty
+    @JsonView(HorizonPublic.class)
     private String code;
 
     @JsonProperty
+    @JsonView(HorizonPublic.class)
     private String message;
 
     public ValidationError(String field, String code, String message) {
