@@ -178,6 +178,7 @@ public abstract class AbstractEntityController<T> {
 
     protected Representation wrapEntities(Page<T> entities, RestRequestFilter filter) {
         List<FilterDefinition> allowedFilters = getDao().getAllowedFilters();
+        allowedFilters.addAll(getDao().getAllowedJoinFilters());
 
         PagedEntityRepr representation = reprFactory.buildPaged(entities);
         representation.setFilters(allowedFilters);

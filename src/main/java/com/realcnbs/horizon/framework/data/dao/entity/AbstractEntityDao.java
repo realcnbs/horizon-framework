@@ -203,7 +203,7 @@ public abstract class AbstractEntityDao<T extends AbstractEntity> {
     }
 
     public List<FilterDefinition> getAllowedJoinFilters() {
-        return null;
+        return new ArrayList<>();
     }
 
     public List<SortDefinition> getAllowedSorts() {
