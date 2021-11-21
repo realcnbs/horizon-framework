@@ -89,9 +89,17 @@
         </if>
     </sql>
 
-    <sql id="Sort">
+    <sql id="Sort" databaseId="POSTGRES">
         <if test="filter != null and filter.sorts.size > 0">
             <foreach item="sort" collection="filter.sorts" open="ORDER BY" separator="NULLS LAST, " close=" NULLS LAST">
+                ${prefix}${sort.field} ${sort.direction}
+            </foreach>
+        </if>
+    </sql>
+
+    <sql id="Sort" databaseId="MYSQL">
+        <if test="filter != null and filter.sorts.size > 0">
+            <foreach item="sort" collection="filter.sorts" open="ORDER BY">
                 ${prefix}${sort.field} ${sort.direction}
             </foreach>
         </if>

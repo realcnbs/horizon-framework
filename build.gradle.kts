@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.realcnbs"
-version = "1.0.4"
+version = "1.0.5"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_16
@@ -56,7 +56,8 @@ tasks.withType<ProcessResources> {
 
 publishing {
     publications {
-        create<MavenPublication>("horizon-framework") {
+        create<MavenPublication>("horizon-framewo" +
+                "rk") {
             from(components["java"])
         }
     }
