@@ -56,8 +56,7 @@ tasks.withType<ProcessResources> {
 
 publishing {
     publications {
-        create<MavenPublication>("horizon-framewo" +
-                "rk") {
+        create<MavenPublication>("horizon-framework") {
             from(components["java"])
         }
     }
