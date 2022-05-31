@@ -42,4 +42,6 @@ public abstract class AbstractEntity implements Serializable {
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+    public abstract Class<? extends AbstractEntityRepr> getRepresentationClass();
 }
