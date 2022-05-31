@@ -16,6 +16,7 @@ public interface ExceptionResponse extends Response {
         INTERNAL,
         CONFIGURATION,
         AUTHENTICATION,
+        AUTH_TOKEN_EXPIRED,
         AUTHORIZATION,
         VALIDATION,
         NOT_FOUND,
