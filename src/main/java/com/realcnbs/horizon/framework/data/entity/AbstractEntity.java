@@ -1,5 +1,6 @@
 package com.realcnbs.horizon.framework.data.entity;
 
+import com.realcnbs.horizon.framework.rest.repr.AbstractEntityRepr;
 import lombok.ToString;
 
 import java.io.Serializable;

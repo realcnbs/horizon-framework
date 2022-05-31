@@ -1,10 +1,5 @@
 package com.realcnbs.horizon.framework.util;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.JWTVerifier;
-import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.interfaces.DecodedJWT;
-
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -17,22 +12,6 @@ public class HorizonUtils {
     private static final int RANDOM_STRING_LENGTH = 25;
 
     private static final char[] CHARSET_AZ_09 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
-
-    public static String parseApiKeyFromJwtToken(String jwtSecret, String token) throws Exception {
-
-        Algorithm algorithm = Algorithm.HMAC256(jwtSecret);
-        JWTVerifier verifier = JWT.require(algorithm)
-                .withIssuer("horizon")
-                .build();
-        DecodedJWT jwt = verifier.verify(token);
-
-        String apiKey = jwt.getClaim("api-key").asString();
-        if (apiKey.length() != 74) {
-            throw new Exception("Invalid key");
-        }
-
-        return apiKey;
-    }
 
     public static String getRandomString() {
         return getRandomString(RANDOM_STRING_LENGTH);
