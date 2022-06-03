@@ -13,11 +13,11 @@ public class ValidationExceptionResponse implements ExceptionResponse {
 
     private Map<String, List<ValidationError>> errors;
 
-    private ErrorType type = ErrorType.VALIDATION;
+    private ErrorType type = BaseErrorType.VALIDATION;
 
     @Override
     public String getErrorType() {
-        return type.name();
+        return type.enumName();
     }
 
     @Override

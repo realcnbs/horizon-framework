@@ -27,7 +27,7 @@ public class GenericExceptionResponse implements ExceptionResponse {
 
     @Override
     public String getErrorType() {
-        return type != null ? type.name() : "Unknown";
+        return type != null ? type.enumName() : "Unknown";
     }
 
     @Override

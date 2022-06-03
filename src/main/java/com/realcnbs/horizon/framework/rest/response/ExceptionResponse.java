@@ -12,7 +12,7 @@ public interface ExceptionResponse extends Response {
 
     void setErrorType(ErrorType type);
 
-    enum ErrorType {
+    enum BaseErrorType implements ErrorType {
         INTERNAL,
         CONFIGURATION,
         AUTHENTICATION,
@@ -21,6 +21,10 @@ public interface ExceptionResponse extends Response {
         VALIDATION,
         NOT_FOUND,
         INVALID_JSON,
-        INVALID_REQUEST
+        INVALID_REQUEST;
+
+        public String enumName(){
+            return name();
+        }
     }
 }
