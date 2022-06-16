@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.realcnbs"
-version = "1.0.9"
+version = "1.0.10"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_16
