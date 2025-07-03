@@ -111,6 +111,13 @@ public abstract class AbstractEntityController<T> {
             return;
         }
 
+        if (filterEntry.getValue().equalsIgnoreCase("=NULL")) {
+            fieldFilter.setCheckType(FieldFilter.CheckType.EQUALS);
+            fieldFilter.setValue(null);
+            fieldFilters.add(fieldFilter);
+            return;
+        }
+
         switch (allowedFilter.getDataType()) {
             case BOOLEAN:
                 fieldFilter.setValue(Boolean.parseBoolean(filterEntry.getValue()));

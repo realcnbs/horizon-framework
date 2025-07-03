@@ -13,6 +13,12 @@
                     ${logic} ${prefix}${fieldFilter.field} = #{fieldFilter.value}
                 </if>
             </when>
+            <when test="fieldFilter.CheckType.name() == 'EQUALS_OR_NULL'">
+                ${logic} (${prefix}${fieldFilter.field} = #{fieldFilter.value} OR ${prefix}${fieldFilter.field} IS NULL)
+            </when>
+            <when test="fieldFilter.CheckType.name() == 'NOT_EQUALS_OR_NULL'">
+                ${logic} (${prefix}${fieldFilter.field} != #{fieldFilter.value} OR ${prefix}${fieldFilter.field} IS NULL)
+            </when>
             <when test="fieldFilter.CheckType.name() == 'NOT_EQUALS'">
                 <if test="fieldFilter.value == null">
                     ${logic} ${prefix}${fieldFilter.field} IS NOT NULL
