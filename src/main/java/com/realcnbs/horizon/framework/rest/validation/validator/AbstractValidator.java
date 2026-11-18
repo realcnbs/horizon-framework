@@ -1,6 +1,6 @@
 package com.realcnbs.horizon.framework.rest.validation.validator;
 
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidatorContext;
 
 public class AbstractValidator {
 

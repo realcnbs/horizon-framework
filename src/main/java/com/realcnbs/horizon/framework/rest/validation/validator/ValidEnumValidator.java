@@ -3,8 +3,8 @@ package com.realcnbs.horizon.framework.rest.validation.validator;
 import com.google.common.base.Joiner;
 import com.realcnbs.horizon.framework.rest.validation.constraint.ValidEnum;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -3,8 +3,8 @@ package com.realcnbs.horizon.framework.rest.validation.constraint;
 import com.realcnbs.horizon.framework.rest.validation.validator.ValidEnumValidator;
 import com.realcnbs.horizon.framework.rest.validation.validator.ValidEnumsValidator;
 
-import javax.validation.Constraint;
-import javax.validation.Payload;
+import jakarta.validation.Constraint;
+import jakarta.validation.Payload;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

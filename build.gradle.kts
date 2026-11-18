@@ -1,14 +1,15 @@
+import org.gradle.api.artifacts.dsl.LockMode
 plugins {
     id("java")
     id("maven-publish")
 }
 
 group = "com.realcnbs"
-version = "1.0.13"
+version = "1.0.14"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_16
-    targetCompatibility = JavaVersion.VERSION_16
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
 }
 
 configurations {
@@ -22,20 +23,20 @@ repositories {
 }
 
 dependencies {
-    annotationProcessor("org.projectlombok:lombok:1.18.20")
+    annotationProcessor("org.projectlombok:lombok:1.18.48")
 
-    compileOnly("org.mybatis:mybatis:3.5.7")
-    compileOnly("org.springframework:spring-context:5.3.6")
-    compileOnly("org.springframework.data:spring-data-commons:2.5.0")
-    compileOnly("org.springframework:spring-beans:5.3.6")
-    compileOnly("jakarta.validation:jakarta.validation-api:2.0.2")
-    compileOnly("org.apache.commons:commons-lang3:3.6")
-    compileOnly("com.fasterxml.jackson.core:jackson-annotations:2.12.3")
-    compileOnly("com.google.guava:guava:27.1-jre")
+    compileOnly("org.mybatis:mybatis:3.6.0")
+    compileOnly("org.springframework:spring-context:7.0.10")
+    compileOnly("org.springframework.data:spring-data-commons:4.1.2")
+    compileOnly("org.springframework:spring-beans:7.0.10")
+    compileOnly("jakarta.validation:jakarta.validation-api:3.1.1")
+    compileOnly("org.apache.commons:commons-lang3:3.22.0")
+    compileOnly("com.fasterxml.jackson.core:jackson-annotations:2.23")
+    compileOnly("com.google.guava:guava:33.8.0-jre")
 
-    compileOnly("org.projectlombok:lombok:1.18.20")
+    compileOnly("org.projectlombok:lombok:1.18.48")
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:6.1.3")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 }
 
@@ -59,4 +60,12 @@ publishing {
             from(components["java"])
         }
     }
+}
+dependencyLocking {
+    lockAllConfigurations()
+    lockMode.set(LockMode.STRICT)
+}
+val resolvedConfigurations = configurations.filter { it.isCanBeResolved }
+tasks.register("resolveDependencies") {
+    doLast { resolvedConfigurations.forEach { it.resolve() } }
 }
